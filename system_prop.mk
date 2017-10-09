@@ -80,7 +80,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ril
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=trlteRIL
+    ro.telephony.ril_class=trlteRIL \
+    ro.config.hw_fast_dormancy=0
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
