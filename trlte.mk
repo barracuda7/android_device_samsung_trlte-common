@@ -132,6 +132,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SamsungDoze
 
+# MicroG
+PRODUCT_PACKAGES += \
+    DroidGuard \
+    FakeStore \
+    FDroid \
+    FDroidPrivilegedExtension \
+    GmsCore \
+    GsfProxy \
+    MozillaNlpBackend \
+    NominatimNlpBackend
+
 PRODUCT_PACKAGES += \
     libhealthd.default
 
