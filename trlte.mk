@@ -137,7 +137,6 @@ PRODUCT_PACKAGES += \
     DroidGuard \
     FakeStore \
     FDroid \
-    FDroidPrivilegedExtension \
     GmsCore \
     GsfProxy \
     MozillaNlpBackend \
