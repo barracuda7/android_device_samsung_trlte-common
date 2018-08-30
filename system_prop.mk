@@ -1,3 +1,7 @@
+#Art
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-swap=false
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.speaker=true \
@@ -67,21 +71,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.ds_fmc_app.mode=0 \
-    persist.data_netmgrd_nint=16 \
-    persist.data.qmi.adb_logmask=0 \
-    persist.omh.enabled=1 \
-    persist.radio.add_power_save=1 \
-    persist.radio.fill_eons=1 \
-    persist.radio.use_se_table_only=1 \
     ro.ril.telephony.mqanelements=6 \
-    ro.telephony.mms_data_profile=5 \
-    persist.net.doxlat=true
+    telephony.lteOnGsmDevice=1 \
+    ro.telephony.default_network=9 \
+    telephony.lteOnCdmaDevice=0 \
+    ril.subscription.types=NV,RUIM \
+    rild.libargs=-d /dev/smd0 \
+    rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
+    persist.radio.do_not_init_csvt=1
 
 # Ril
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=trlteRIL \
-    ro.config.hw_fast_dormancy=0
+    ro.telephony.ril_class=trlteRIL
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \

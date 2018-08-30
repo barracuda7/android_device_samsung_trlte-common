@@ -35,11 +35,12 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
-PRODUCT_PROPERTY_OVERRIDES += 	dalvik.vm.heapgrowthlimit=256m \
-				persist.radio.apm_sim_not_pwdn=1
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=256m \
+    persist.radio.apm_sim_not_pwdn=1
 
 $(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -74,6 +75,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+
+PRODUCT_PACKAGES += \
+    com.qualcomm.location.xml
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -110,12 +114,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/iop_bt.db:/system/etc/bluetooth/iop_bt.db
-
-# Camera
-PRODUCT_PACKAGES += \
-    camera.apq8084 \
-    libstlport \
-    libxml2
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -159,13 +157,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.apq8084
 
-# GPS config
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/flp.conf:/system/etc/flp.conf \
-    $(LOCAL_PATH)/configs/gps.conf:/system/etc/gps.conf \
-    $(LOCAL_PATH)/configs/izat.conf:/system/etc/izat.conf \
-    $(LOCAL_PATH)/configs/sap.conf:/system/etc/sap.conf
-
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
@@ -189,14 +180,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     sys.keymaster.loaded=true
 
-# Lights
-PRODUCT_PACKAGES += \
-    lights.APQ8084
-
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdivxdrmdecrypt \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -206,14 +192,6 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc \
     libstagefrighthw
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 # NFC config
 PRODUCT_COPY_FILES += \
@@ -236,9 +214,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
+
 # Radio
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
+    librmnetctl \
+    rmnetcli \
+    librmt_shim \
     libprotobuf-cpp-full
 
 # Ramdisk
@@ -253,9 +235,7 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libril_shim \
-    librmt_shim \
-    libqcopt_shim
+    libshim_qcopt
 
 # TimeKeep
 PRODUCT_PACKAGES += \
@@ -284,5 +264,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
 
-# Common Qualcomm
-$(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
+# Common apq8084
+$(call inherit-product, device/samsung/apq8084-common/apq8084.mk)

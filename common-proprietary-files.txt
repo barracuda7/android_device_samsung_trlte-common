@@ -7,6 +7,11 @@ vendor/lib/libscve.so
 vendor/lib/libscve_stub.so
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 
+# AptX
+vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922aded93bb0512
+vendor/lib/libaptXHD-1.0.0-rel-Android21-ARMv7A.so|d12efedab3681f5419ba9b79275e5993c95c0285
+vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
+
 # Audio
 etc/Bluetooth_cal.acdb
 etc/firmware/audience-es705-fw.bin
@@ -18,14 +23,18 @@ etc/Hdmi_cal.acdb
 etc/Headset_cal.acdb
 etc/Speaker_cal.acdb
 lib/libcsd-client.so
-# Need This lib for call audio
-#lib/libdetectmodem.so
+lib/libdetectmodem.so|9ddb8a06bcbd2f0db3576dfd8a352ed3ce995b6c
 lib/libmysound.so
 lib/libssaudio-client.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
+lib/hw/audio.tms.default.so
+
+# Bluetooth firmware
+vendor/firmware/bcm4358A1_V0054.0095.hcd
+vendor/firmware/bcm4358A1_V0054.0095_wisol.hcd
 
 # Camera
 bin/mm-qcamera-daemon
@@ -270,9 +279,6 @@ etc/firmware/cpp_firmware_v1_6_0.fw
 etc/H16UL_s5k2p2xx_module_info.xml
 etc/H16US_imx240_module_info.xml
 
-# ConsumerIR Hal
-lib/hw/consumerir.default.so
-
 # CPU
 bin/mpdecision
 vendor/bin/thermal-engine
@@ -281,19 +287,12 @@ vendor/lib/libthermalioctl.so
 
 # DRM
 bin/qseecomd
-lib/drm/libdrmwvmplugin.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
-vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/libQSEEComAPI.so
 lib/libdrmdecrypt.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
--vendor/lib/libWVphoneAPI.so
-vendor/lib/libWVStreamControlAPI_L1.so
 
 # Fingerprint
 bin/vcsFPService
@@ -310,6 +309,8 @@ lib/libgps.utils.so
 lib/libloc_api_v02.so
 lib/libloc_eng.so
 lib/libloc_core.so
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk:priv-app/com.qualcomm.location/com.qualcomm.location.apk:PRESIGNED|5917d0f7dc996454558d48b8de6f14cc1cd9f46a
+vendor/lib/libflp.so
 vendor/lib/hw/flp.default.so
 vendor/lib/libalarmservice_jni.so
 vendor/lib/libgeofence.so
@@ -317,6 +318,8 @@ vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
 vendor/lib/liblocationservice.so
 vendor/lib/libulp2.so
+vendor/lib/libdataitems.so
+vendor/lib/liblowi_client.so
 
 # Graphics
 vendor/lib/egl/eglSubDriverAndroid.so
@@ -350,6 +353,9 @@ etc/firmware/a420_pm4.fw
 bin/irsc_util
 etc/sec_config
 
+# IPv6 Tethering
+bin/radish
+
 # Keystore stuffs.
 vendor/lib/lib-sec-disp.so
 vendor/lib/libSecureUILib.so
@@ -358,20 +364,12 @@ vendor/lib/libsecureui.so
 vendor/lib/libsecureui_svcsock.so
 vendor/lib/libsecureuisvc_jni.so
 
-# IPv6 Tethering
-bin/radish
-
 # Media
-vendor/lib/libDivxDrm.so
-vendor/lib/libI420colorconvert.so
-vendor/lib/libmm-color-convertor.so
-vendor/lib/libmmosal.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxWmaDec.so
-vendor/lib/libSHIMDivxDrm.so
 
 # NFC
 lib/hw/nfc_nci.apq8084.so
@@ -380,14 +378,8 @@ vendor/firmware/sec_s3fwrn5_firmware.bin
 # Perf
 vendor/lib/libqc-opt.so
 
-# Postprocessing
-vendor/lib/libdisp-aba.so
--vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
-
 # Qualcomm
 vendor/lib/libxml.so
-lib/libxml2.so
 
 # Sensors
 lib/hw/sensors.apq8084.so
@@ -401,12 +393,7 @@ lib/libsensorhubservice.so
 lib/hw/sensorhubs.apq8084.so
 
 # Time services
-lib/libcommon_time_client.so
 -vendor/lib/libtime_genoff.so
-
-# Bluetooth firmware
--vendor/firmware/bcm4358A1_V0051.0083.hcd
--vendor/firmware/bcm4358A1_V0051.0083_wisol.hcd
 
 # Wi-Fi
 bin/olsrd
@@ -430,7 +417,6 @@ etc/wifi/nvram_net.txt_wisol_r10
 etc/wifi/olsrd.conf
 etc/wifi/wpa_supplicant.conf
 
-# AptX
-vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922aded93bb0512
-vendor/lib/libaptXHD-1.0.0-rel-Android21-ARMv7A.so|d12efedab3681f5419ba9b79275e5993c95c0285
-vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
+# Widevine
+vendor/lib/mediadrm/libwvdrmengine.so|8d8f13b2b20db3fdeeca94fa03063d0bf5597718
+
